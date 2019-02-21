@@ -2,16 +2,6 @@
 import os
 import pexpect
 
-#prepare and open the file 
-os.system("hostname > file.txt")
-temp_file = open("file.txt.","r")
-name = ""
-for line in temp_file:
-        name = line[:line.index(".")]
-
-print(name)
-temp_file.close()
-os.system("sudo rm file.txt")
 
 #opening various ports
 os.system("sudo iptables -A INPUT -p udp --dport 12345 -j ACCEPT")
