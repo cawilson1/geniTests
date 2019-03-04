@@ -17,9 +17,9 @@ os.system("sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT")
 os.system("sudo useradd jDoe")
 child = pexpect.spawn("sudo passwd jDoe")
 child.expect("Enter new UNIX password: ")
-child.sendline("password")
+child.sendline("xX53cUrEXx")
 child.expect("Retype new UNIX password: ")
-child.sendline("password")
+child.sendline("xX53cUrEXx")
 
 #creating a hidden file with the open ports in it
 os.system("echo \"The passphrase is CanadaIsGreat" | cat > .pass.txt")
