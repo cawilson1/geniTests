@@ -22,7 +22,7 @@ child.expect("Retype new UNIX password: ")
 child.sendline("password")
 
 #creating a hidden file with the open ports in it
-os.system("echo \"Open Ports: \n12345 \n6512 \n578 \n2957 \n23 \n22\" | cat > .openPorts.txt")
+os.system("echo \"The passphrase is CanadaIsGreat" | cat > .pass.txt")
 
 
 
