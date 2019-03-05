@@ -28,10 +28,11 @@ child.sendline("xX53cUrEXx")
 os.system("echo \"The passphrase is CanadaIsGreat\" | cat > .pass.txt")
 os.system("wget https://raw.githubusercontent.com/Setzlerte/geniTests/master/coolSpace.jpg")
 
-
+"""
 #Locking down the machine for access from the KALI machine
 os.system("iptables -A INPUT -j REJECT")
 os.system("iptables -A OUTPUT -j ACCEPT")
 os.system("iptables -A OUTPUT -o lo -j ACCEPT")
+"""
 
 
