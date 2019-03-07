@@ -9,6 +9,8 @@ os.system("iptables -A OUTPUT -j ACCEPT")
 os.system("iptables -A OUTPUT -o lo -j ACCEPT")
 os.system("iptables -A INPUT -s 10.10.1.2 -j ACCEPT")
 os.system("iptables -A INPUT -s 10.10.1.1 -j ACCEPT")
+os.system("iptables -A INPUT -s 10.10.2.1 -j ACCEPT")
+os.system("iptables -A INPUT -s 10.10.2.2 -j ACCEPT")
 
 #opening various ports
 os.system("sudo iptables -A INPUT -p udp --dport 12345 -j ACCEPT")
