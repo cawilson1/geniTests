@@ -4,7 +4,7 @@ import pexpect
 
 
 #Locking down the machine for access from the KALI machine
-os.system("iptables -A INPUT -j REJECT")
+#os.system("iptables -A INPUT -j REJECT")
 os.system("iptables -A OUTPUT -j ACCEPT")
 os.system("iptables -A OUTPUT -o lo -j ACCEPT")
 os.system("iptables -A INPUT -s 10.10.1.2 -j ACCEPT")
