@@ -1,0 +1,7 @@
+﻿An aurora (plural: auroras or aurorae),[a] sometimes referred to as polar lights, northern lights, southern lights (aurora australis), is a natural light display in the Earth's sky, predominantly seen in the high-latitude regions (around the Arctic and Antarctic).
+
+
+Auroras are produced when the magnetosphere is sufficiently disturbed by the solar wind that the trajectories of charged particles in both solar wind and magnetospheric plasma, mainly in the form of electrons and protons, precipitate them into the upper atmosphere (thermosphere/exosphere) due to Earth's magnetic field, where their energy is lost.
+
+
+The resulting ionization and excitation of atmospheric constituents emits light of varying color and complexity. The form of the aurora, occurring within bands around both polar regions, is also dependent on the amount of acceleration imparted to the precipitating particles. Precipitating protons generally produce optical emissions as incident hydrogen atoms after gaining electrons from the atmosphere. Proton auroras are usually observed at lower latitudes.[2]
