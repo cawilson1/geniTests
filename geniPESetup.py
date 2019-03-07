@@ -2,13 +2,19 @@
 import os
 import pexpect
 
-
+"""
 #Locking down the machine for access from the KALI machine
 os.system("iptables -P INPUT DROP")
 os.system("iptables -P FORWARD DROP")
 os.system("iptables -P OUTPUT ACCEPT")
 os.system("iptables -A INPUT -s user -j ACCEPT")
-
+"""
+#directory creation
+os.system("sudo mkdir /home/jDoe")
+os.system("sudo mkdir /home/jDoe/Pictures")
+os.system("sudo mkdir /home/jDoe/Documents")
+os.system("sudo mkdir /home/jDoe/Music")
+os.system("sudo mkdir /home/jDoe/Pictures/Wallpapers")
 
 #opening various ports
 os.system("sudo iptables -A INPUT -p udp --dport 12345 -j ACCEPT")
@@ -31,6 +37,13 @@ child.expect("Enter new UNIX password: ")
 child.sendline("xX53cUrEXx")
 child.expect("Retype new UNIX password: ")
 child.sendline("xX53cUrEXx")
+
+#directory creation
+os.system("sudo mkdir /home/jDoe")
+os.system("sudo mkdir /home/jDoe/Pictures")
+os.system("sudo mkdir /home/jDoe/Documents")
+os.system("sudo mkdir /home/jDoe/Music")
+os.system("sudo mkdir /home/jDoe/Pictures/Wallpapers")
 
 #creating a hidden file with the stegnographic in it
 os.system("echo \"The passphrase is CanadaIsGreat\" | cat > .pass.txt")
