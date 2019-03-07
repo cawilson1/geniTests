@@ -13,13 +13,14 @@ os.system("sudo iptables -A INPUT -p udp --dport 12345 -j ACCEPT")
 os.system("sudo iptables -A INPUT -P udp --dport 6512 -j ACCEPT")
 os.system("sudo iptables -A INPUT -p tcp --dport 578 -j ACCEPT")
 os.system("sudo iptables -A INPUT -p tcp --dport 2957 -j ACCEPT")
+#standard ssh port
+os.system("sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT")
 #open telnet port and prepare it for telneting
 os.system("sudo iptables -A INPUT -p tcp --dport 23 -j ACCEPT")
 os.system("sudo apt-get install telnetd")
 os.system("cd /etc/init.d")
 os.system("sudo inetd restart")
-#standard ssh port
-os.system("sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT")
+
 
 #creating a vulnerable user and password
 os.system("sudo useradd jDoe")
