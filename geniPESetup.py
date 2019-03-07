@@ -7,6 +7,8 @@ import pexpect
 os.system("iptables -A INPUT -j REJECT")
 os.system("iptables -A OUTPUT -j ACCEPT")
 os.system("iptables -A OUTPUT -o lo -j ACCEPT")
+os.system("iptables -A INPUT -s 10.10.1.2 -j ACCEPT")
+os.system("iptables -A INPUT -s 10.10.1.1 -j ACCEPT")
 
 #opening various ports
 os.system("sudo iptables -A INPUT -p udp --dport 12345 -j ACCEPT")
@@ -14,7 +16,7 @@ os.system("sudo iptables -A INPUT -P udp --dport 6512 -j ACCEPT")
 os.system("sudo iptables -A INPUT -p tcp --dport 578 -j ACCEPT")
 os.system("sudo iptables -A INPUT -p tcp --dport 2957 -j ACCEPT")
 #standard ssh port
-os.system("sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT")
+os.system("sudo iptables -A INPUT --dport 22 -j ACCEPT")
 #open telnet port and prepare it for telneting
 os.system("sudo iptables -A INPUT -p tcp --dport 23 -j ACCEPT")
 os.system("sudo apt-get install telnetd")
