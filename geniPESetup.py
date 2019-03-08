@@ -45,9 +45,28 @@ os.system("sudo mkdir /home/jDoe/Documents")
 os.system("sudo mkdir /home/jDoe/Music")
 os.system("sudo mkdir /home/jDoe/Pictures/Wallpapers")
 
-#creating a hidden file with the stegnographic in it
+#populating directories
+os.system("cd jDoe")
+os.system("cd Documents")
+#creating a hidden file with the stegnographic passphrase in it
 os.system("echo \"The passphrase is CanadaIsGreat\" | cat > .pass.txt")
-os.system("wget https://raw.githubusercontent.com/Setzlerte/geniTests/master/coolSpace.jpg")
+os.system("sudo wget https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/History%20of%20Canada.txt")
+os.system("sudo wget https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/aurora.txt")
+os.system("sudo wget https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/moose.txt")
+os.system("cd")
+os.system("cd Pictures")
+os.system("sudo wget https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/sittingMoose.jpeg")
+os.system("sudo wget https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/moutainsFlag.jpeg")
+os.system("cd Wallpapers")
+os.system("sudo wget https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/underwaterNun.jpg")
+os.system("sudo wget https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/coolSpace.jpg")
+os.system("sudo wget https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/mountains.jpeg")
+os.system("sudo wget https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/mooseLights.jpeg")
+os.system("sudo wget https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/spaceJar.jpeg")
+
+
+
+
 
 
 
