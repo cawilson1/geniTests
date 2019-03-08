@@ -10,11 +10,11 @@ os.system("iptables -P OUTPUT ACCEPT")
 os.system("iptables -A INPUT -s user -j ACCEPT")
 """
 #directory creation
-os.system("sudo mkdir /home/jDoe")
-os.system("sudo mkdir /home/jDoe/Pictures")
-os.system("sudo mkdir /home/jDoe/Documents")
-os.system("sudo mkdir /home/jDoe/Music")
-os.system("sudo mkdir /home/jDoe/Pictures/Wallpapers")
+os.system("sudo mkdir jDoe")
+os.system("sudo mkdir jDoe/Pictures")
+os.system("sudo mkdir jDoe/Documents")
+os.system("sudo mkdir jDoe/Music")
+os.system("sudo mkdir jDoe/Pictures/Wallpapers")
 
 #opening various ports
 os.system("sudo iptables -A INPUT -p udp --dport 12345 -j ACCEPT")
@@ -39,11 +39,11 @@ child.expect("Retype new UNIX password: ")
 child.sendline("xX53cUrEXx")
 
 #directory creation
-os.system("sudo mkdir /home/jDoe")
-os.system("sudo mkdir /home/jDoe/Pictures")
-os.system("sudo mkdir /home/jDoe/Documents")
-os.system("sudo mkdir /home/jDoe/Music")
-os.system("sudo mkdir /home/jDoe/Pictures/Wallpapers")
+os.system("sudo mkdir jDoe")
+os.system("sudo mkdir jDoe/Pictures")
+os.system("sudo mkdir jDoe/Documents")
+os.system("sudo mkdir jDoe/Music")
+os.system("sudo mkdir jDoe/Pictures/Wallpapers")
 
 #populating directories
 os.system("cd jDoe")
