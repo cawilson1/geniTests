@@ -7,7 +7,7 @@ import pexpect
 os.system("iptables -P INPUT DROP")
 os.system("iptables -P FORWARD DROP")
 os.system("iptables -P OUTPUT ACCEPT")
-os.system("iptables -A INPUT -s user -j ACCEPT")
+os.system("iptables -A INPUT -s 10.10.1.1 -j ACCEPT")
 """
 #directory creation
 os.system("sudo mkdir /home/jDoe")
