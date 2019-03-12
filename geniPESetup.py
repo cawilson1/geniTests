@@ -9,13 +9,6 @@ os.system("iptables -P FORWARD DROP")
 os.system("iptables -P OUTPUT ACCEPT")
 os.system("iptables -A INPUT -s 10.10.1.1 -j ACCEPT")
 """
-#directory creation
-os.system("sudo mkdir /home/jDoe")
-os.system("sudo mkdir /home/jDoe/Pictures")
-os.system("sudo mkdir /home/jDoe/Documents")
-os.system("sudo mkdir /home/jDoe/Music")
-os.system("sudo mkdir /home/jDoe/Pictures/Wallpapers")
-
 #opening various ports
 os.system("sudo iptables -A INPUT -p udp --dport 12345 -j ACCEPT")
 os.system("sudo iptables -A INPUT -P udp --dport 6512 -j ACCEPT")
@@ -38,7 +31,16 @@ child.sendline("xX53cUrEXx")
 child.expect("Retype new UNIX password: ")
 child.sendline("xX53cUrEXx")
 
-#directory creation
+#juice-shop setup and run
+os.system("curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -")
+os.system("sudo apt-get install -y nodejs")
+os.system("wget https://github.com/bkimminich/juice-shop/releases/download/v8.4.1/juice-shop-8.4.1_node10_linux_x64.tgz")
+os.system("tar -xzvf juice-shop-8.4.1_node10_linux_x64.tgz")
+os.system("cd juice-shop_8.4.1 && sudo npm start &")
+
+
+
+#directory creation for authenticity
 os.system("sudo mkdir /home/jDoe")
 os.system("sudo mkdir /home/jDoe/Pictures")
 os.system("sudo mkdir /home/jDoe/Documents")
