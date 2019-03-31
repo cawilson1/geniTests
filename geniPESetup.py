@@ -70,10 +70,11 @@ os.system("sudo wget -P /home/jDoe/Pictures/Wallpapers https://raw.githubusercon
 #preparing the file for SSH
 
 count = 1
-ports = []
+ports = [
+]
 
 for line in ssh_config_file:
-  if count == 55:
+	if count == 55:
 		new_ssh_config_file.write("PasswordAuthentication yes")
 	else:
 		new_ssh_config_file.write(line)
@@ -87,7 +88,8 @@ new_ssh_config_file.close()
 os.system("sudo mv /etc/ssh/sshd_config_2 /etc/ssh/sshd_config")
 os.system("sudo service ssh restart")
 
-
+for port in ports:
+		os.system("sudo iptables -A INPUT -p tcp --dport " + port + " -j DROP")
 
 
 
