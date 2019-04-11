@@ -24,9 +24,6 @@ for line in ssh_config_file:
 		new_ssh_config_file.write("PubkeyAuthentication no")
 	else:
 		new_ssh_config_file.write(line)
-
-	if "Port" in line:
-		ports.append(line[line.index(" ") + 1:-1])
 	count += 1
 
 ssh_config_file.close()
@@ -35,8 +32,7 @@ new_ssh_config_file.close()
 os.system("sudo mv /etc/ssh/sshd_config_2 /etc/ssh/sshd_config")
 os.system("sudo service ssh restart")
 
-for port in ports:
-os.system("sudo iptables -A INPUT -p tcp --dport " + port + " -j DROP")
+
 
 
 
