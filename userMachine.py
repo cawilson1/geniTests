@@ -1,5 +1,5 @@
 import os
-import pexepect
+import pexpect
 
 os.system("sudo useradd alice")
 child = pexpect.spawn("sudo passwd alice")
