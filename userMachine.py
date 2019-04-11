@@ -16,18 +16,18 @@ count = 1
 ports = []
 
 for line in ssh_config_file:
-if count == 54:
-	new_ssh_config_file.write("PasswordAuthentication yes")
-elif count == 33: 
-	new_ssh_config_file.write("RSAAuthentication no")
-elif count == 34:
-	new_ssh_config_file.write("PubkeyAuthentication no")
-else:
-	new_ssh_config_file.write(line)
+	if count == 54:
+		new_ssh_config_file.write("PasswordAuthentication yes")
+	elif count == 33: 
+		new_ssh_config_file.write("RSAAuthentication no")
+	elif count == 34:
+		new_ssh_config_file.write("PubkeyAuthentication no")
+	else:
+		new_ssh_config_file.write(line)
 
-if "Port" in line:
-	ports.append(line[line.index(" ") + 1:-1])
-count += 1
+	if "Port" in line:
+		ports.append(line[line.index(" ") + 1:-1])
+	count += 1
 
 ssh_config_file.close()
 new_ssh_config_file.close()
