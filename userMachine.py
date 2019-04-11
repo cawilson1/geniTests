@@ -1,3 +1,6 @@
+import os
+import pexepect
+
 os.system("sudo useradd alice")
 child = pexpect.spawn("sudo passwd alice")
 child.expect("Enter new UNIX password: ")
