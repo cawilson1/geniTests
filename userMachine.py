@@ -1,3 +1,13 @@
+	os.system("sudo useradd alice")
+	child = pexpect.spawn("sudo passwd alice")
+	child.expect("Enter new UNIX password: ")
+	child.sendline("password")
+	child.expect("Retype new UNIX password: ")
+	child.sendline("password")
+	os.system("sudo chown -R alice /home/alice")
+	os.system("sudo chgrp -R alice /home/alice")
+	
+	
 	ssh_config_file = open("/etc/ssh/sshd_config", "r")
 	new_ssh_config_file = open("/etc/ssh/sshd_config_2", "w")
 
