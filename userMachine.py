@@ -20,9 +20,9 @@ ports = []
 
 for line in ssh_config_file:
 	if count == 54:
-		new_ssh_config_file.write("PasswordAuthentication yes")
+		new_ssh_config_file.write("PasswordAuthentication yes\n")
 	elif count == 33: 
-		new_ssh_config_file.write("RSAAuthentication no")
+		new_ssh_config_file.write("RSAAuthentication no\n")
 	elif count == 34:
 		new_ssh_config_file.write("PubkeyAuthentication no")
 	else:
