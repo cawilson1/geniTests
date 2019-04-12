@@ -28,13 +28,20 @@ os.system("sudo apt-get install telnetd")
 os.system("cd /etc/init.d && sudo inetd restart")
 
 
-#creating a vulnerable user and password
+#creating a vulnerable user
 os.system("sudo useradd jDoe")
 child = pexpect.spawn("sudo passwd jDoe")
 child.expect("Enter new UNIX password: ")
 child.sendline("xX53cUrEXx")
 child.expect("Retype new UNIX password: ")
 child.sendline("xX53cUrEXx")
+# creating a user with a highly vulnerable password 
+os.system("sudo useradd guest")
+child = pexpect.spawn("sudo passwd guest")
+child.expect("Enter new UNIX password: ")
+child.sendline("password")
+child.expect("Retype new UNIX password: ")
+child.sendline("password")
 
 #juice-shop setup and run
 os.system("curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -")
@@ -52,9 +59,7 @@ os.system("sudo mkdir /home/jDoe/Documents")
 os.system("sudo mkdir /home/jDoe/Music")
 os.system("sudo mkdir /home/jDoe/Pictures/Wallpapers")
 
-#populating directories
-os.system("cd /home/jDoe")
-os.system("cd /home/jDoe/Documents")
+
 #creating a hidden file with the stegnographic passphrase in it
 os.system("echo \"The passphrase is CanadaIsGreat\" | cat > .pass.txt")
 os.system("sudo wget -P /home/jDoe/Documents https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/History%20of%20Canada.txt")
@@ -62,7 +67,7 @@ os.system("sudo wget -P /home/jDoe/Documents https://raw.githubusercontent.com/S
 os.system("sudo wget -P /home/jDoe/Documents https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/moose.txt")
 os.system("sudo wget -P /home/jDoe/Pictures https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/sittingMoose.jpeg")
 os.system("sudo wget -P /home/jDoe/Pictures https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/moutainsFlag.jpeg")
-
+#populating directories
 os.system("sudo wget -P /home/jDoe/Pictures/Wallpapers https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/underwaterNun.jpg")
 os.system("sudo wget -P /home/jDoe/Pictures/Wallpapers https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/coolSpace.jpg")
 os.system("sudo wget -P /home/jDoe/Pictures/Wallpapers https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/mountains.jpeg")
@@ -76,16 +81,15 @@ new_ssh_config_file = open("/etc/ssh/sshd_config_2", "w")
 
 count = 1
 
-ports = []
-
 for line in ssh_config_file:
-	if count == 55:
-		new_ssh_config_file.write("PasswordAuthentication yes")
+	if count == 54:
+		new_ssh_config_file.write("PasswordAuthentication yes\n")
+	elif count == 33: 
+		new_ssh_config_file.write("RSAAuthentication no\n")
+	elif count == 34:
+		new_ssh_config_file.write("PubkeyAuthentication no")
 	else:
 		new_ssh_config_file.write(line)
-
-	if "Port" in line:
-		ports.append(line[line.index(" ") + 1:-1])
 	count += 1
 
 ssh_config_file.close()
@@ -93,7 +97,4 @@ new_ssh_config_file.close()
 
 os.system("sudo mv /etc/ssh/sshd_config_2 /etc/ssh/sshd_config")
 os.system("sudo service ssh restart")
-
-for port in ports:
-	os.system("sudo iptables -A INPUT -p tcp --dport " + port + " -j DROP")
 
