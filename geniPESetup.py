@@ -55,6 +55,7 @@ os.system("cd juice-shop_8.4.1 && sudo npm start &")
 
 
 #directory creation for authenticity
+os.system("sudo mkdir /home/guest");
 os.system("sudo mkdir /home/jDoe")
 os.system("sudo mkdir /home/jDoe/Pictures")
 os.system("sudo mkdir /home/jDoe/Documents")
