@@ -2,15 +2,13 @@
 import os
 import pexpect
 
-"""
+
 #Locking down the machine for access from the KALI machine
 ##os.system("iptables -P INPUT DROP")
 os.system("iptables -P FORWARD DROP")
 os.system("iptables -P OUTPUT ACCEPT")
 os.system("iptables -A INPUT -s 10.10.1.1 -j ACCEPT")
 os.system("iptables -A INPUT -s 10.10.1.2 -j ACCEPT")
-
-"""
 
 #opening input from port 3000 so that the OWASP juiceshop can run
 os.system("iptables -A INPUT -p tcp --dport 3000 -j ACCEPT")
