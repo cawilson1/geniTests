@@ -11,6 +11,7 @@ os.system("iptables -A INPUT -s 10.10.1.1 -j ACCEPT")
 os.system("iptables -A INPUT -s 10.10.1.2 -j ACCEPT")
 
 """
+
 #opening input from port 3000 so that the OWASP juiceshop can run
 os.system("iptables -A INPUT -p tcp --dport 3000 -j ACCEPT")
 os.system("iptables -A INPUT -p udp --dport 3000 -j ACCEPT")
@@ -35,6 +36,7 @@ child.expect("Enter new UNIX password: ")
 child.sendline("xX53cUrEXx")
 child.expect("Retype new UNIX password: ")
 child.sendline("xX53cUrEXx")
+
 # creating a user with a highly vulnerable password 
 os.system("sudo useradd guest")
 child = pexpect.spawn("sudo passwd guest")
