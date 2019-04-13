@@ -62,7 +62,7 @@ os.system("sudo mkdir /home/jDoe/Pictures/Wallpapers")
 
 
 #creating a hidden file with the stegnographic passphrase in it
-os.system("echo \"The passphrase is CanadaIsGreat\" | cat > .pass.txt")
+os.system("echo \"The passphrase is CanadaIsGreat\" | cat > /home/jDoe/Documents/.pass.txt")
 os.system("sudo wget -P /home/jDoe/Documents https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/History%20of%20Canada.txt")
 os.system("sudo wget -P /home/jDoe/Documents https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/aurora.txt")
 os.system("sudo wget -P /home/jDoe/Documents https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/moose.txt")
