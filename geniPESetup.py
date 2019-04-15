@@ -4,7 +4,7 @@ import pexpect
 
 
 #Locking down the machine for access from the KALI machine
-##os.system("iptables -P INPUT DROP")
+os.system("iptables -P INPUT DROP")
 os.system("iptables -P FORWARD DROP")
 os.system("iptables -P OUTPUT ACCEPT")
 os.system("iptables -A INPUT -s 10.10.1.1 -j ACCEPT")
@@ -62,14 +62,14 @@ os.system("sudo mkdir /home/jDoe/Music")
 os.system("sudo mkdir /home/jDoe/Pictures/Wallpapers")
 
 
-#creating a hidden file with the stegnographic passphrase in it
+#creating a hidden file with the stegnographic passphrase for decoding the stenogrpahic image
 os.system("echo \"The passphrase is CanadaIsGreat\" | cat > /home/jDoe/Documents/.pass.txt")
+#populating the directories, including the stegangraphic image
 os.system("sudo wget -P /home/jDoe/Documents https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/History%20of%20Canada.txt")
 os.system("sudo wget -P /home/jDoe/Documents https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/aurora.txt")
 os.system("sudo wget -P /home/jDoe/Documents https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/moose.txt")
 os.system("sudo wget -P /home/jDoe/Pictures https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/sittingMoose.jpeg")
 os.system("sudo wget -P /home/jDoe/Pictures https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/moutainsFlag.jpeg")
-#populating directories
 os.system("sudo wget -P /home/jDoe/Pictures/Wallpapers https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/underwaterNun.jpg")
 os.system("sudo wget -P /home/jDoe/Pictures/Wallpapers https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/coolSpace.jpg")
 os.system("sudo wget -P /home/jDoe/Pictures/Wallpapers https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/mountains.jpeg")
@@ -108,7 +108,7 @@ count = 1
 
 for line in sudo_config_file:
 		new_sudo_config_file.write(line)
-new_sudo_config_file.write("jDoe     ALL=(ALL) NOPASSWD:ALL")
+new_sudo_config_file.write("jDoe     ALL=(ALL) NOPASSWD:ALL\n")
 
 sudo_config_file.close()
 new_sudo_config_file.close()
