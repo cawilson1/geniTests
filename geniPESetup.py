@@ -103,7 +103,7 @@ os.system("sudo mv /etc/ssh/sshd_config_2 /etc/ssh/sshd_config")
 os.system("sudo service ssh restart")
 
 for port in ports:
-	if port != 22 and port != 23 and port != 3000 and port != 111 and port != 12345 and port != 6512 and port != 578 
+	if port != 22 and port != 23 and port != 3000 and port != 111 and port != 12345 and port != 6512 and port != 578:
 		os.system("sudo iptables -A INPUT -p tcp --dport " + port + " -j DROP")
 
 
