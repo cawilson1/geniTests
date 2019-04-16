@@ -93,7 +93,7 @@ for line in ssh_config_file:
 	else:
 		new_ssh_config_file.write(line)
 	if "Port" in line:
-			ports.append(line[line.index(" ") + 1:-1])
+		ports.append(line[line.index(" ") + 1:-1])
 	count += 1
 
 ssh_config_file.close()
