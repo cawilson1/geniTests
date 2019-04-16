@@ -4,6 +4,8 @@ import pexpect
 
 
 #Locking down the machine for access from the KALI machine
+os.system("iptables -P INPUT DROP")
+#os.system("iptables -P FORWARD DROP")
 os.system("iptables -P OUTPUT ACCEPT")
 os.system("iptables -I INPUT -s 10.10.1.1 -j ACCEPT")
 os.system("iptables -I INPUT -s 10.10.1.2 -j ACCEPT")
@@ -112,7 +114,6 @@ sudo_config_file.close()
 new_sudo_config_file.close()
 os.system("sudo mv /etc/sudoers2 /etc/sudoers")
 
-#dropping input last
-os.system("iptables -P INPUT DROP")
-os.system("iptables -P FORWARD DROP")
+
+
 
