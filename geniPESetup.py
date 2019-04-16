@@ -7,23 +7,23 @@ import pexpect
 #os.system("iptables -P INPUT DROP")
 os.system("iptables -P FORWARD DROP")
 os.system("iptables -P OUTPUT ACCEPT")
-os.system("iptables -A INPUT -s 10.10.1.1 -j ACCEPT")
-os.system("iptables -A INPUT -s 10.10.1.2 -j ACCEPT")
+os.system("iptables -I INPUT -s 10.10.1.1 -j ACCEPT")
+os.system("iptables -I INPUT -s 10.10.1.2 -j ACCEPT")
 
 #opening input from port 3000 so that the OWASP juiceshop can run
-os.system("iptables -A INPUT -p tcp --dport 3000 -j ACCEPT")
-os.system("iptables -A INPUT -p udp --dport 3000 -j ACCEPT")
+os.system("iptables -I INPUT -p tcp --dport 3000 -j ACCEPT")
+os.system("iptables -I INPUT -p udp --dport 3000 -j ACCEPT")
 
 #opening various ports
-os.system("sudo iptables -A INPUT -p udp --dport 12345 -j ACCEPT")
-os.system("sudo iptables -A INPUT -P udp --dport 6512 -j ACCEPT")
-os.system("sudo iptables -A INPUT -p tcp --dport 578 -j ACCEPT")
-os.system("sudo iptables -A INPUT -p tcp --dport 2957 -j ACCEPT")
+os.system("sudo iptables -I INPUT -p udp --dport 12345 -j ACCEPT")
+os.system("sudo iptables -I INPUT -P udp --dport 6512 -j ACCEPT")
+os.system("sudo iptables -I INPUT -p tcp --dport 578 -j ACCEPT")
+os.system("sudo iptables -I INPUT -p tcp --dport 2957 -j ACCEPT")
 #standard ssh port
-os.system("sudo iptables -A INPUT --dport 22 -j ACCEPT")
+os.system("sudo iptables -I INPUT --dport 22 -j ACCEPT")
 #open telnet port and prepare it for telneting
 #os.system("sudo iptables -A INPUT -p tcp --dport 23 -j ACCEPT")
-os.system("sudo iptables -A INPUT -p tcp -m state --state NEW --dport 23 -j ACCEPT")
+os.system("sudo iptables -I INPUT -p tcp -m state --state NEW --dport 23 -j ACCEPT")
 os.system("sudo apt-get install telnetd -y")
 os.system("cd /etc/init.d && sudo inetd restart")
 
