@@ -18,7 +18,6 @@ os.system("iptables -I INPUT -p udp --dport 3000 -j ACCEPT")
 os.system("sudo iptables -I INPUT -p udp --dport 12345 -j ACCEPT")
 os.system("sudo iptables -I INPUT -P udp --dport 6512 -j ACCEPT")
 os.system("sudo iptables -I INPUT -p tcp --dport 578 -j ACCEPT")
-os.system("sudo iptables -I INPUT -p tcp --dport 2957 -j ACCEPT")
 #standard ssh port
 os.system("sudo iptables -I INPUT --dport 22 -j ACCEPT")
 #open telnet port and prepare it for telneting
@@ -104,7 +103,8 @@ os.system("sudo mv /etc/ssh/sshd_config_2 /etc/ssh/sshd_config")
 os.system("sudo service ssh restart")
 
 for port in ports:
-	os.system("sudo iptables -A INPUT -p tcp --dport " + port + " -j DROP")
+	if port != 22 and port != 23 and port != 3000 and port != 111 and port != 12345 and port != 6512 and port != 578 
+		os.system("sudo iptables -A INPUT -p tcp --dport " + port + " -j DROP")
 
 
 sudo_config_file = open("/etc/sudoers", "r")
