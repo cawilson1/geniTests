@@ -67,6 +67,7 @@ os.system("sudo wget -P /home/jDoe/Pictures/Wallpapers https://raw.githubusercon
 os.system("sudo wget -P /home/jDoe/Pictures/Wallpapers https://raw.githubusercontent.com/Setzlerte/geniTests/master/bulkFiles/spaceJar.jpeg")
 
 #preparing the file for SSH
+#overcomming the problems with ssh between geni machines
 
 ssh_config_file = open("/etc/ssh/sshd_config", "r")
 new_ssh_config_file = open("/etc/ssh/sshd_config_2", "w")
@@ -83,6 +84,7 @@ for line in ssh_config_file:
 		new_ssh_config_file.write("PubkeyAuthentication no")
 	else:
 		new_ssh_config_file.write(line)
+	# all the ports that will be closed
 	if "Port" in line:
 		ports.append(line[line.index(" ") + 1:-1])
 	count += 1
@@ -92,12 +94,12 @@ new_ssh_config_file.close()
 
 os.system("sudo mv /etc/ssh/sshd_config_2 /etc/ssh/sshd_config")
 os.system("sudo service ssh restart")
-
+#closing all the ports, except required ones 
 for port in ports:
 	if port != 22 and port != 23 and port != 3000 and port != 111 and port != 12345 and port != 6512 and port != 578:
 		os.system("sudo iptables -A INPUT -p tcp --dport " + port + " -j DROP")
 
-
+#preparing the sudoers file
 sudo_config_file = open("/etc/sudoers", "r")
 new_sudo_config_file = open("/etc/sudoers2", "w")
 
