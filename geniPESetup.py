@@ -4,8 +4,6 @@ import pexpect
 
 
 #Locking down the machine for access from the KALI machine
-#os.system("iptables -P INPUT DROP")
-#os.system("iptables -P FORWARD DROP")
 os.system("iptables -P OUTPUT ACCEPT")
 os.system("iptables -I INPUT -s 10.10.1.1 -j ACCEPT")
 os.system("iptables -I INPUT -s 10.10.1.2 -j ACCEPT")
@@ -21,7 +19,6 @@ os.system("sudo iptables -I INPUT -p tcp --dport 578 -j ACCEPT")
 #standard ssh port
 os.system("sudo iptables -I INPUT --dport 22 -j ACCEPT")
 #open telnet port and prepare it for telneting
-#os.system("sudo iptables -A INPUT -p tcp --dport 23 -j ACCEPT")
 os.system("sudo iptables -I INPUT -p tcp -m state --state NEW --dport 23 -j ACCEPT")
 os.system("sudo apt-get install telnetd -y")
 os.system("cd /etc/init.d && sudo inetd restart")
