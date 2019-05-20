@@ -1,7 +1,6 @@
 #imports
 import os
 import pexpect
-from juice_shop import juiceShop
 
 
 #Locking down the machine for access from the KALI machine

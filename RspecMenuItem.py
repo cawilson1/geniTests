@@ -16,9 +16,11 @@ class RspecMenuItem:
         
     #return relevant lines for Item
     def getRspecLines(self):
+        strList = []#list of strings to concat
         #if true, we want to add this line of code to execute for the rspec
         if self.run:
-            return ('<execute xmlns=\"http://www.geni.net/resources/rspec/3\" command=\"' + self.cmd + '\" shell=\"/bin/sh\"/>')
-        
+            strList.append('<execute xmlns=\"http://www.geni.net/resources/rspec/3\" command=\"' + self.cmd + '\" shell=\"/bin/sh\"/>')
+            strList.append('<execute xmlns=\"http://www.geni.net/resources/rspec/3\" command=\"sudo python /local/' + self.cmd.rsplit('/',1)[-1] + '\" shell=\"/bin/sh\"/>')
+            return ''.join(strList)
         
 #put line library here for the lines to use for a given vulnerable addition
