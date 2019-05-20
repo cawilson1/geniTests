@@ -1,6 +1,7 @@
 #imports
 import os
 import pexpect
+from juice_shop import juiceShop
 
 
 #Locking down the machine for access from the KALI machine
@@ -110,12 +111,5 @@ sudo_config_file.close()
 new_sudo_config_file.close()
 os.system("sudo mv /etc/sudoers2 /etc/sudoers")
 
-#juice-shop setup and run
-os.system("curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -")
-os.system("sudo apt-get install -y nodejs")
-os.system("wget https://github.com/bkimminich/juice-shop/releases/download/v8.4.1/juice-shop-8.4.1_node10_linux_x64.tgz")
-os.system("tar -xzvf juice-shop-8.4.1_node10_linux_x64.tgz")
-os.system("cd juice-shop_8.4.1 && sudo npm start")
-
-
-
+#later this will just be called from rspec
+juiceShop()
