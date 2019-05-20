@@ -32,16 +32,16 @@ print("Select the options that you want for your vulnerable VM.")
 
 RspecCommands = []
 
-#later ask if a person wants to open their own ports
+
 #create OWASP Juice Shop? Default is Yes.
 boolVal = getBool(input("Do you want to use the OWASP Juice Shop? (Enter \'y\' for yes or \'n\' for no)."),True)
 Item = RspecMenuItem("sudo wget --no-check-certificate -O /local/juice_shop.py https://raw.githubusercontent.com/cawilson1/geniTests/master/juice_shop.py", 
                boolVal)
 RspecCommands.append(Item)
 
-#test value. default is No.
-boolVal = getBool(input("Test Value? (Enter \'y\' for yes or \'n\' for no)."),False)
-Item2 = RspecMenuItem("This is a test",
+#Eventually do a python simpleserver startup at a random port. default is No.
+boolVal = getBool(input("Do you want to run an HTTP server on port 802? (Enter \'y\' for yes or \'n\' for no)."),False)
+Item2 = RspecMenuItem("sudo wget --no-check-certificate -O /local/startup1.sh https://raw.githubusercontent.com/cawilson1/geniTests/master/startup1.sh",
                 boolVal)
 RspecCommands.append(Item2)
 

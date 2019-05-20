@@ -15,6 +15,7 @@ class RspecMenuItem:
         print(self.run)
         
     #return relevant lines for Item
+    #client should add specific lines
     def getRspecLines(self):
         strList = []#list of strings to concat
         #if true, we want to add this line of code to execute for the rspec

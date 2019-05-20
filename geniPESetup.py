@@ -110,5 +110,8 @@ sudo_config_file.close()
 new_sudo_config_file.close()
 os.system("sudo mv /etc/sudoers2 /etc/sudoers")
 
+#to store new startupscripts
+os.system("sudo mkdir /bin/mystartups")
+
 #later this will just be called from rspec
 juiceShop()
